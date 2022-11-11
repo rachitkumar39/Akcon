@@ -1,0 +1,39 @@
+<div class="maincontainer">
+    <div class="container">
+        <div class="header">
+            <div class="edit-intro">
+                <h1 style="margin:0;">Add Skills</h1>
+            </div>
+            <div class="close">
+                <button (click)="closeMe()" style="border:none; background:none; cursor: pointer;">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <hr>
+        <div class="body">
+            <form [formGroup]="profileSkillsForm" (ngSubmit)="profileSkills()">
+                <div class="form-fields">
+                    <ul class="form-list">
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Skill*</label>
+                                    <input type="text" name="skill" placeholder="Angular" formControlName="skill" required>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="footer">
+                    <div>
+                        <button [disabled]="!profileSkillsForm.valid" type="submit" class="save-btn" style="cursor:pointer;">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

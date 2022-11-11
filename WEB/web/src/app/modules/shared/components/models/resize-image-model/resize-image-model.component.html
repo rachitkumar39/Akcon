@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="theCard">
+    <div class="first-sec">
+      <h1>Edit your Photo</h1>
+      <mat-icon (click)="closeAll()">close</mat-icon>
+    </div>
+    <hr>
+    <div class="second-sec">
+      <div class="orgimg">
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1/1"
+          format="png" (imageCropped)="imageCropped($event)"></image-cropper>
+      </div>
+      <!-- <img *ngIf="temp==true" [src]="croppedImage" class="cropped" /> -->
+      <hr>
+      <div class="third-sec">
+        <input type="file" title=" " value=" " accept=".jpg,.jpeg,.png" (change)="fileChangeEvent($event)" />
+        <button mat-button (click)="saveimage()">upload</button>
+        <button mat-button (click)="closeMe()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

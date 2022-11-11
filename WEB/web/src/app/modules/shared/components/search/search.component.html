@@ -1,0 +1,21 @@
+<div class="dashboard-wrapper">
+  <div class="header-wrapper">
+      <app-header></app-header>
+  </div>
+  <div class="contentBody">
+  <div class="card" *ngFor="let user of userList ;">
+    <div *ngIf="user['email']!=userData['email']" class="profile-view"  (click)="showProfile(user['email'])">
+      <img style="margin-left:10px;width:50px; height: 50px; border-radius: 25px;" *ngIf="user['image']==''" [src]="pImage"  >
+      <img style="margin-left:10px;width:50px; height: 50px; border-radius: 25px;" *ngIf="user['image']!=''" [src]="imagePath+'profileimages/'+user['image']"  >
+      <div style="margin-left:20px; display: flex; flex-direction: column;">
+        <span>
+          <p style="margin:0; padding:0; font-weight:800;font-size: 18px;font-family:cursive;" >{{user['first_name']|titlecase}} {{user['last_name']|titlecase}}</p>
+        </span>
+        <span style="font-family:cursive;font-weight:500;font-size: 14px;color: gray;">{{user['passing_year']}}</span>
+        <span style="font-family:cursive;font-weight:500;font-size: 14px;color: rgb(209, 208, 215);">{{user['location']}}</span>
+        <!-- <span>?</span> -->
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

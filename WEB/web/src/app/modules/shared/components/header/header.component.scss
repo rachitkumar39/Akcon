@@ -1,0 +1,128 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.header {
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.header1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header1 button:hover{
+  color:darkblue;
+}
+.navbar-brand{
+  cursor: pointer;
+}
+.icon {
+  vertical-align: middle;
+  display: inline;
+  width: 40px;
+  height: 40px;
+  content: url("../../../../../assets/images/akg-icon.svg");
+}
+
+.title {
+  vertical-align: middle;
+  font-family: Lucida, Console, Courier, monospace;
+  font-size: 50px;
+  font-weight: bold;
+
+}
+.title mat-icon:hover{
+  color:skyblue;
+}
+
+.profile {
+  vertical-align: middle;
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  margin-left: 75px;
+  border-radius: 50%;
+}
+
+.user-name {
+  margin-left: 10px;
+  vertical-align: middle;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  font-weight: 900;
+  color: rgb(124, 130, 136);
+  display: inline-flex;
+}
+.user-name:hover{
+  color:darkslategray;
+}
+.menu {
+  margin-right: 5px;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.mat {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.matcontent {
+  padding: 10px;
+}
+
+.usernamediv:hover {
+  align-items: center;
+}
+
+.matprofile {
+  width: 50px;
+  height: 50px;
+  margin-top: -12px;
+  border-radius: 50%;
+  float: left;
+}
+
+.username {
+  margin-top: 15px;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 19px;
+  font-weight: 700;
+  color: rgb(124, 130, 136);
+}
+.username:hover{
+  color:darkslategray;
+}
+.titlediv {
+  width: 250px;
+  height: 60px;
+}
+.search-form-width{
+  width:300px;
+}
+.search-form-width button:hover{
+  color:green;
+}
+@media (min-width:100px) and (max-width:600px) {
+  // .search-form {
+  //   // display: none;
+  // }
+
+  .header1 {
+    display: contents;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+}

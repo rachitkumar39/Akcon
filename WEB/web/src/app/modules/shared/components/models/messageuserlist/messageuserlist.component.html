@@ -1,0 +1,114 @@
+<div class="main-container">
+    <div class="container">
+        <div class="header">
+            <h1>Share With</h1>
+            <div class="close-btn" (click)="closeMe()">
+                <mat-icon style="font-size:x-large;font-weight: bold;">close</mat-icon>
+            </div>
+        </div>
+        <div class="body">
+            <div class="left-section">
+                <div class="left-body">
+                  <ul class="user-list scroll-object">
+                    <!-- userlist -->
+                    <div *ngFor="let user of userList;">
+                      <li class="user-div" style="cursor: pointer;"
+                        [style.background]="activeUser['id']==user['id']?' #f7d9a3':'white'">
+                        <div style="display:flex; flex-direction:row;margin-left: 10px; margin-bottom:10px; margin-top: 10px;">
+                          <div class="l-profile-image">
+                            <img *ngIf="user['image']==''" [src]="pImage">
+                            <img *ngIf="user['image']!=''" [src]="imagePath+'profileimages/'+user['image']">
+                          </div>
+                          <div class="l-profile-image-data">
+                            <div>
+                              <h2 style="margin: 0;">{{user['first_name']|titlecase}} {{user['last_name']|titlecase}}</h2>
+                            </div>
+                            <div>
+                              <h4 style="color:grey; margin:0;">{{user['last_message']| slice:0:50}}... </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="user-div" style="cursor: pointer;"
+                        [style.background]="activeUser['id']==user['id']?' #f7d9a3':'white'">
+                        <div style="display:flex; flex-direction:row;margin-left: 10px; margin-bottom:10px; margin-top: 10px;">
+                          <div class="l-profile-image">
+                            <img *ngIf="user['image']==''" [src]="pImage">
+                            <img *ngIf="user['image']!=''" [src]="imagePath+'profileimages/'+user['image']">
+                          </div>
+                          <div class="l-profile-image-data">
+                            <div>
+                              <h2 style="margin: 0;">{{user['first_name']|titlecase}} {{user['last_name']|titlecase}}</h2>
+                            </div>
+                            <div>
+                              <h4 style="color:grey; margin:0;">{{user['last_message']| slice:0:50}}... </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="user-div" style="cursor: pointer;"
+                        [style.background]="activeUser['id']==user['id']?' #f7d9a3':'white'">
+                        <div style="display:flex; flex-direction:row;margin-left: 10px; margin-bottom:10px; margin-top: 10px;">
+                          <div class="l-profile-image">
+                            <img *ngIf="user['image']==''" [src]="pImage">
+                            <img *ngIf="user['image']!=''" [src]="imagePath+'profileimages/'+user['image']">
+                          </div>
+                          <div class="l-profile-image-data">
+                            <div>
+                              <h2 style="margin: 0;">{{user['first_name']|titlecase}} {{user['last_name']|titlecase}}</h2>
+                            </div>
+                            <div>
+                              <h4 style="color:grey; margin:0;">{{user['last_message']| slice:0:50}}... </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="user-div" style="cursor: pointer;"
+                        [style.background]="activeUser['id']==user['id']?' #f7d9a3':'white'">
+                        <div style="display:flex; flex-direction:row;margin-left: 10px; margin-bottom:10px; margin-top: 10px;">
+                          <div class="l-profile-image">
+                            <img *ngIf="user['image']==''" [src]="pImage">
+                            <img *ngIf="user['image']!=''" [src]="imagePath+'profileimages/'+user['image']">
+                          </div>
+                          <div class="l-profile-image-data">
+                            <div>
+                              <h2 style="margin: 0;">{{user['first_name']|titlecase}} {{user['last_name']|titlecase}}</h2>
+                            </div>
+                            <div>
+                              <h4 style="color:grey; margin:0;">{{user['last_message']| slice:0:50}}... </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="user-div" style="cursor: pointer;"
+                        [style.background]="activeUser['id']==user['id']?' #f7d9a3':'white'">
+                        <div style="display:flex; flex-direction:row;margin-left: 10px; margin-bottom:10px; margin-top: 10px;">
+                          <div class="l-profile-image">
+                            <img *ngIf="user['image']==''" [src]="pImage">
+                            <img *ngIf="user['image']!=''" [src]="imagePath+'profileimages/'+user['image']">
+                          </div>
+                          <div class="l-profile-image-data">
+                            <div>
+                              <h2 style="margin: 0;">{{user['first_name']|titlecase}} {{user['last_name']|titlecase}}</h2>
+                            </div>
+                            <div>
+                              <h4 style="color:grey; margin:0;">{{user['last_message']| slice:0:50}}... </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </div>
+                    <!-- userlist end -->
+                  </ul>
+                </div>
+              </div>
+        </div>
+        <div class="footer">
+            <div>
+                <div class="send-btn" style="cursor:pointer;">
+                    <mat-icon style="color:white;">send</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

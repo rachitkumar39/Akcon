@@ -1,0 +1,29 @@
+
+ <div class="feed">
+  <div class="feed__inputContainer">
+    <div style="cursor:pointer;" class="feed__input">
+      <i class="material-icons"> create </i>
+      <form  (click)="createPostPopup('text')">
+        <input type="text" style="cursor:pointer;"  disabled/>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <div class="feed__inputOptions">
+      <div class="inputOption" (click)="createPostPopup('image')">
+        <i style="color: #70b5f9" class="material-icons"> insert_photo </i>
+        <span class="title">Photo</span>
+      </div>
+      <div class="inputOption" (click)="createPostPopup('news')">
+        <i style="color: #e7a33e" class="material-icons"> feed </i>
+        <span class="title">News</span>
+      </div>
+      <div class="inputOption" (click)="createPostPopup('event')" >
+        <i style="color: #c0cbcd" class="material-icons"> event_note </i>
+        <span class="title">Events</span>
+      </div>
+      <div class="inputOption" (click)="createPostPopup('text')">
+        <i style="color: #7fc15e" class="material-icons"> title </i>
+        <span class="title">Text</span>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,120 @@
+<div class="dashboard-wrapper">
+  <div class="header-wrapper">
+    <app-header></app-header>
+  </div>
+  <div class="contentBody" style="display:flex; flex-direction:row;">
+    <div class="left-section">
+      <div class="left-body">
+        <ul class="user-list scroll-object">
+          <!-- userlist -->
+          <div *ngFor="let user of userList;">
+            <li class="user-div" style="cursor: pointer;" (click)="showChat(user)"
+              [style.background]="activeUser['id']==user['id']?' #f7d9a3':'white'">
+              <div style="display:flex; flex-direction:row;margin-left: 10px; margin-bottom:10px; margin-top: 10px;">
+                <div class="l-profile-image">
+                  <img *ngIf="user['image']==''" [src]="pImage">
+                  <img *ngIf="user['image']!=''" [src]="imagePath+'profileimages/'+user['image']">
+                </div>
+                <div class="l-profile-image-data">
+                  <div>
+                    <h2 style="margin: 0;">{{user['first_name']|titlecase}} {{user['last_name']|titlecase}}</h2>
+                  </div>
+                  <div>
+                    <h4 style="color:grey; margin:0;">{{user['last_message']| slice:0:50}}... </h4>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </div>
+          <!-- userlist end -->
+        </ul>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="right-body">
+        <div class="right-header">
+          <div class="right-header-container">
+            <div class="right-profile-img">
+              <img *ngIf="activeUser['image']==''" [src]="pImage">
+              <img *ngIf="activeUser['image']!=''" [src]="imagePath+'profileimages/'+activeUser['image']">
+            </div>
+            <div class="right-header-text">
+              <h2 style="margin:0;" *ngIf="activeUser!=undefined">
+                {{activeUser['first_name']|titlecase}} {{activeUser['last_name']|titlecase}}
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="message-body" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+          <div class="m-receiver-message">
+            <ul class="receiver-message" style="list-style-type:none;">
+              <li *ngFor="let message of chatHistory;">
+                <!-- receiver message -->
+                <div *ngIf="message['sender']!=user['email']">
+                  <div class="m-date">
+                    <div class="m-date-text">
+                      <h5 style="margin:0;">{{message['date']}}</h5>
+                    </div>
+                  </div>
+                  <div class="message-bg-div">
+                    <span class="message-bg">
+                      <!-- <span style="font-weight: bold;">
+                        {{activeUser['first_name']|titlecase}} {{activeUser['last_name']|titlecase}}
+                      </span> -->
+                      <span style="color:black;font-size: large;font-family: cursive;">
+                        {{message['message']}}
+
+                      </span>
+                      <span style="margin-top:5px; color:grey;font-size:small;">
+                        {{message['time']}}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <!-- receiver message end-->
+                <!-- sender message -->
+                <div class="if-sender" *ngIf="message['sender']==user['email']">
+                  <div class="message-bg-receiver-div">
+                    <span class="message-bg">
+                      <!-- <span style="font-weight: bold;">
+                        {{user['first_name']|titlecase}} {{user['last_name']|titlecase}}
+                      </span> -->
+                      <span style="color:black; font-size: large;font-family: cursive;">
+                        {{message['message']}}
+                      </span>
+                      <span style="margin-top:5px;color:grey; font-size:small;">
+                        {{message['time']}}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- sender message end-->
+
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="m-sender-message">
+            <ul class="sender-message" style="list-style-type:none;">
+              
+            </ul>
+          </div> -->
+        </div>
+        <div class="message-footer">
+          <form class="message-form" [formGroup]="messageForm" (ngSubmit)="sendMessage();messageForm.reset()">
+            <div class="message-footer-item">
+              <div class="send-message-input">
+                <input type="text" name="message" formControlName="message">
+              </div>
+              <div class="send-icon-div">
+                <button type="submit" style="border:none; background:none; cursor:pointer; font-size: larger;">
+                  <mat-icon>send</mat-icon>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

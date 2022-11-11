@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="theCard">
+    <span (click)="closeMe()"><mat-icon>arrow_back</mat-icon></span>
+    <div class="firstCard">
+      <form class="form" [formGroup]="createPostModelForm" (ngSubmit)="submitCreatePostModel()">
+        <input *ngIf="isTitle" class="input" formControlName="title" name="title" type="text" placeholder="Enter Title" >
+        <input *ngIf="isDate" type="date" name="event_date" formControlName="event_date" placeholder="Event Date" >
+        <textarea *ngIf="isDescription" formControlName="discription" id="discription" name="discription" placeholder="What do you want to talk about?" ></textarea>
+        <div *ngIf="isImage" style="cursor: pointer;">
+          <div (click)="imagePopup()">
+            <i style="color: #70b5f9" class="material-icons"> insert_photo </i>
+            <i *ngIf="selctedImage" style="color: green;" class="material-icons"> done </i>
+          </div>
+        </div>
+        <button class="sub-btn" type="submit">submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="second-sec">
+  <h2 style="color: white;">“There is no joy in possession without sharing.”</h2>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="maincontainer">
+    <div class="container">
+        <div class="header">
+            <div class="edit-intro">
+                <h1 style="margin:0;">Edit Intro</h1>
+            </div>
+            <div class="close">
+                <button (click)="closeMe()" style="border:none; background:none; cursor: pointer;">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <hr>
+        <div class="body">
+            <form [formGroup]="profileDetailEditForm" (ngSubmit)="profileDeailEdit()">
+                <div class="form-fields">
+                    <ul class="form-list">
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>First Name*</label>
+                                    <input type="text" name="firstName" placeholder="Rachit" formControlName="firstName" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Last Name*</label>
+                                    <input type="text" name="lastName" placeholder="kumar" formControlName="lastName" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>College</label>
+                                    <input type="text" name="education" formControlName="education" placeholder="Ajay Kumar Garg Engineering College, Ghaziabad">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Organization</label>
+                                    <input type="text" name="organization" formControlName="organization" placeholder="Tech M" >
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Position*</label>
+                                    <input type="text" name="position" formControlName="position" placeholder="Associate Software Engineer" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>City*</label>
+                                    <input type="text" name="city" formControlName="city" placeholder="Bijnor" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>State*</label>
+                                    <input type="text" name="state" formControlName="state" placeholder="Uttar Pradesh" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Country*</label>
+                                    <input type="text" name="country" formControlName="country" placeholder="India" required>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="footer">
+                    <div>
+                        <button [disabled]="!profileDetailEditForm.valid" type="submit" class="save-btn" style="cursor:pointer;">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,338 @@
+<div class="dashboard-wrapper">
+    <div class="header-wrapper">
+        <app-header></app-header>
+    </div>
+    <div class="contentBody">
+        <div class="profile-container">
+            <mat-card>
+                <section>
+                    <div class="back-image">
+                    </div>
+                    <div>
+                        <div class="profile-image">
+                            <button (click)="showProfileImage(profile['user']['image'])" style="border:none;background:none;cursor: pointer;">
+                                <img *ngIf="profile['user']['image']==''" [src]="pImage" alt="profile-image">
+                                <img *ngIf="profile['user']['image']!=''" [src]="imagePath+'profileimages/'+profile['user']['image']"
+                                    alt="profile-image">
+                            </button>
+                            <button (click)="imagePopup()" *ngIf="profile['user']['email']==userData['email']"
+                                style="border: white; border-radius: 30px; padding: 2px;position: absolute; top: 66%; left: 80%;cursor: pointer;">
+                                <div>
+                                    <mat-icon>linked_camera</mat-icon>
+                                </div>
+                            </button>
+
+                        </div>
+                        <div class="edit-profile">
+                            <button (click)="editPersonalDetail()" *ngIf="profile['user']['email']==userData['email']"
+                                style="border: none; background: none; cursor: pointer;">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="name-clg">
+                        <div class="left">
+                            <div class="name">
+                                <h1 style="font-weight: 550; margin: 0; font-size: xx-large;">
+                                    {{profile['user']['first_name']|titlecase}}
+                                    {{profile['user']['last_name']|titlecase}}</h1>
+                            </div>
+                            <div class="left-clg-name">
+                                <h3 style="margin:0; font-size: 20px;" *ngIf="profile['corrent_organization']==''">
+                                    Student at {{profile['current_college'] | uppercase}}
+                                </h3>
+                                <h3 style="margin:0; font-size: 20px;" *ngIf="profile['corrent_organization']!=''">
+                                    Working at
+                                    {{profile['current_organization'] | uppercase}}
+                                </h3>
+                            </div>
+                            <div>
+                                <h3 style="margin:0;" *ngIf="profile['corrent_organization']!=''"><span
+                                        style="color:gray">as</span> {{profile['current_position']|uppercase}}</h3>
+                            </div>
+                            <div class="add1">
+                                <h4 style="margin:0; color: grey;">
+                                    {{profile['user']['city']|titlecase}}, {{profile['user']['state']|titlecase}},
+                                    {{profile['user']['country']|titlecase}}
+                                </h4>
+                            </div>
+                            <div class="passing-year">
+                                <h4 style="margin:0; color: grey">{{profile['user']['passing_year']|uppercase}}</h4>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="right-container" *ngIf="profile['corrent_organization']!=''">
+                                <div class="clg-logo" *ngIf="profile['user']['email']!=userData['email']">
+                                    <button (click)="message()" style="border:none; background:none;">
+                                        <mat-icon style="font-size: xx-large; cursor: pointer;">message</mat-icon><p style="vertical-align:middle ;">Say Hello</p>
+                                    </button>
+                                </div>
+                                <!-- <div>
+                                    <h3 style="margin:0">{{profile['current_organization'] | uppercase}}</h3>
+                                </div> -->
+                            </div>
+                            <div class="right-container" *ngIf="profile['corrent_organization']==''">
+                                <div class="clg-logo">
+                                    <mat-icon>school</mat-icon>
+                                </div>
+                                <div>
+                                    <h3 style="margin:0">{{profile['current_college'] | uppercase}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </mat-card>
+            <mat-card>
+                <section>
+                    <div class="edu-container">
+                        <div class="edu-header">
+                            <div>
+                                <h1 style="font-weight:400;">Contact</h1>
+                            </div>
+                            <div style="display: flex; flex-direction: row;">
+                                <!-- <div style="margin-right:20px;">
+                                  <mat-icon style="width:25px;">add</mat-icon>
+                              </div> -->
+                                <div *ngIf="profile['user']['email']==userData['email']">
+                                    <button (click)="profileContactModel()"
+                                        style="border:none; background:none; cursor: pointer;">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edu-body">
+                            <div>
+                                <ul class="contact-list">
+                                    <li class="contact-list-item" style="display: flex; flex-direction:row;">
+                                        <div *ngFor="let contact of profile['social_plateform'];">
+                                            <div *ngIf="contact['plateform_name']=='email'"
+                                                style="display:flex; flex-direction:row;">
+                                                <div class="icon">
+                                                    <mat-icon>email</mat-icon>
+                                                </div>
+                                                <div class="email-text">
+                                                    <h3 style="margin:0;"> :{{contact['url']|lowercase}}</h3>
+                                                </div>
+                                            </div>
+                                            <div class="icon" *ngIf="contact['plateform_name']=='linkedin'">
+                                                <div class="icon">
+                                                    <a style="cursor: pointer;" [href]="contact['url']" target="_blank">
+                                                        <img src="../../../../../assets/images/linkedin-icon.png"
+                                                            style="width:24px;">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="icon" *ngIf="contact['plateform_name']=='git'">
+                                                <div class="icon">
+                                                    <a style="cursor: pointer;" [href]="contact['url']" target="_blank">
+                                                        <img src="../../../../../assets/images/git.logo.png"
+                                                            style="width: 35px;">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="icon" *ngIf="contact['plateform_name']=='twitter'">
+                                                <div class="icon">
+                                                    <a style="cursor: pointer;" [href]="contact['url']" target="_blank">
+                                                        <img src="../../../../../assets/images/twitter.logo.png"
+                                                            style="width: 35px;">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="icon" *ngIf="contact['plateform_name']=='instagram'">
+                                                <div class="icon">
+                                                    <a style="cursor:pointer;" [href]="contact['url']" target="_blank">
+                                                        <img src="../../../../../assets/images/instagram-logo.png"
+                                                            style="width:35px;">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="icon">
+                                                <div class="icon" *ngIf="contact['plateform_name']=='facebook'">
+                                                    <a style="cursor:pointer;" [href]="contact['url']" target="_blank">
+                                                        <img src="../../../../../assets/images/fb-icon.png"
+                                                            style="width:24px;">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </mat-card>
+            <mat-card>
+                <section>
+                    <div class="education-container">
+                        <div class="edu-header">
+                            <div>
+                                <h1 style="font-weight:400;">Education</h1>
+                            </div>
+                            <div style="display: flex; flex-direction: row;">
+                                <div style="margin-right:20px;" *ngIf="profile['user']['email']==userData['email']">
+                                    <button (click)="profileEducation()"
+                                        style="cursor:pointer; border: none; background:none;">
+                                        <mat-icon style="width:25px;">add</mat-icon>
+                                    </button>
+                                </div>
+                                <!-- <div>
+                                    <mat-icon>edit</mat-icon>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="edu-body">
+                            <ul class="edu-list">
+                                <li class="edu-list-item">
+                                    <div *ngFor="let education of profile['education'];">
+                                        <div class="first-item-div1"
+                                            style="padding:12px;display: flex; flex-direction: row;">
+                                            <div style="display: flex;flex-direction: row;">
+                                                <div style="margin-right:10px;">
+                                                    <mat-icon>school</mat-icon>
+                                                </div>
+                                                <div class="clg" style="display:flex;flex-direction:column;">
+                                                    <div class="clg-name">
+                                                        <h1 style="margin:0">{{education['college_name']|uppercase}}
+                                                        </h1>
+                                                    </div>
+                                                    <div class="clg-course">
+                                                        <h2 style="margin:0">
+                                                            {{education['degree_name']|uppercase}}
+                                                        </h2>
+                                                    </div>
+                                                    <div class="clg-year">
+                                                        <h4 style="margin:0">
+                                                            {{education['year_from']}}-{{education['year_to']}}</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="delete-icon" *ngIf="profile['user']['email']==userData['email']">
+                                                <button style="cursor:pointer; border:none; background:none">
+                                                    <mat-icon>delete</mat-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-line"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </mat-card>
+            <mat-card>
+                <section>
+                    <div class="edu-container">
+                        <div class="edu-header">
+                            <div>
+                                <h1 style="font-weight:400;">Experience</h1>
+                            </div>
+                            <div style="display: flex; flex-direction: row;">
+                                <div style="margin-right:20px;">
+                                    <button (click)="profileExperience()" *ngIf="profile['user']['email']==userData['email']"
+                                        style="cursor:pointer; border: none; background:none;">
+                                        <mat-icon style="width:25px;">add</mat-icon>
+                                    </button>
+                                </div>
+                                <!-- <div>
+                                    <mat-icon>edit</mat-icon>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="edu-body">
+                            <div>
+                                <ul class="edu-list">
+                                    <li class="exp-list-item">
+                                        <div *ngFor="let experience of profile['experience'];">
+                                            <div class="wrapper-row" style="display: flex; flex-direction:row;">
+                                                <div style="display:flex; flex-direction:row;">
+                                                    <div class="exp-icon" style="margin-right:10px;">
+                                                        <mat-icon>corporate_fare</mat-icon>
+                                                    </div>
+                                                    <div class="exp-detail"
+                                                        style="display:flex; flex-direction:column;">
+                                                        <div>
+                                                            <h1 style="margin:0;">
+                                                                {{experience['company_name']|uppercase}}</h1>
+                                                        </div>
+                                                        <div>
+                                                            <h2 style="margin:0;">{{experience['job_title']|titlecase}}
+                                                            </h2>
+                                                        </div>
+                                                        <div>
+                                                            <h3 style="margin:0;">
+                                                                {{experience['exp_from']|uppercase}}-{{experience['exp_to']|titlecase}}
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="delete-icon" *ngIf="profile['user']['email']==userData['email']">
+                                                    <button style="cursor:pointer; border:none; background:none">
+                                                        <mat-icon>delete</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bottom-line"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </mat-card>
+            <mat-card>
+                <section>
+                    <div class="edu-container">
+                        <div class="edu-header">
+                            <div>
+                                <h1 style="font-weight:400;">Skills</h1>
+                            </div>
+                            <div style="display: flex; flex-direction: row;">
+                                <div style="margin-right:20px;">
+                                    <button (click)="profileSkills()" *ngIf="profile['user']['email']==userData['email']"
+                                        style="cursor:pointer; border: none; background:none;">
+                                        <mat-icon style="width:25px;">add</mat-icon>
+                                    </button>
+                                </div>
+                                <!-- <div>
+                                    <mat-icon>edit</mat-icon>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="edu-body">
+                            <div>
+                                <ul class="skill-list">
+                                    <div *ngFor="let skill of profile['skills'];">
+                                        <li class="skill-list-item">
+                                            <div class="skill-box"
+                                                style="display:flex; flex-direction:row; margin-bottom:4px;">
+                                                <div style="display:flex; flex-direction:row;">
+                                                    <div class="skill-icon">
+                                                        <mat-icon>book</mat-icon>
+                                                    </div>
+                                                    <div class="skill-text">
+                                                        <h2 style="margin:0;">{{skill['name']|uppercase}}</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="delete-icon" *ngIf="profile['user']['email']==userData['email']">
+                                                    <button style="cursor:pointer; border:none; background:none">
+                                                        <mat-icon>delete</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="bottom-line"></div>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </mat-card>
+        </div>
+    </div>
+</div>

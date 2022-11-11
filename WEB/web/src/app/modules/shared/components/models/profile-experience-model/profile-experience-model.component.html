@@ -1,0 +1,70 @@
+<div class="maincontainer">
+    <div class="container">
+        <div class="header">
+            <div class="edit-intro">
+                <h1 style="margin:0;">Add Experience</h1>
+            </div>
+            <div class="close">
+                <button (click)="closeMe()" style="border:none; background:none; cursor: pointer;">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <hr>
+        <div class="body">
+            <form [formGroup]="profileExperienceForm" (ngSubmit)="profileExperience()">
+                <div class="form-fields">
+                    <ul class="form-list">
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Company Name*</label>
+                                    <input type="text" name="companyName" placeholder="unthinkable" formControlName="companyName" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Currently Working Here*</label>
+                                    <select name="currentlyWorkingHere" id="currentlyWorkingHere" placeholder="select" formControlName="currentlyWorkingHere" required>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Job Title*</label>
+                                    <input type="text" name="jobTitle" placeholder="SDE" formControlName="jobTitle" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper wrapper-row">
+                                <div class="title-input">
+                                    <label>start Year*</label>
+                                    <input type="number" name="startYear" placeholder="2018" formControlName="startYear" required>
+                                </div>
+                                <div class="title-input">
+                                    <label>End Year*</label>
+                                    <input type="number" name="endYear" placeholder="2020" formControlName="endYear" required>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="footer">
+                    <div>
+                        <button [disabled]="!profileExperienceForm.valid" type="submit" class="save-btn" style="cursor:pointer;">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

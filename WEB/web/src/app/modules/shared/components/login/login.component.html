@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup container-fluid mb-5">
+            <form  class="sign-in-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" >
+                <img src="assets/img/akgeclogo.png" alt=" AKGEC LOGO " width="100" (click)="gotowelcome()" style="cursor:pointer;">
+                <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"><i>Once an Akgecian, Always an Akgecian</i></h3>
+                <!-- {{loginForm.value|json}} -->
+                <h2 class="title">Sign in</h2>
+                <div class="input-field ">
+                    
+                    <i class="" ><mat-icon matPrefix aria-hidden="true" aria-label="Example user icon">person</mat-icon></i>
+                    <input required #email="ngModel" ngModel  type="text" id="email" placeholder="Email or Roll No." name="username">
+                    
+                </div>   
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+
+                    <div *ngIf="email.errors?.['required']">
+                        Email/Roll No. is required.
+                    </div>
+                </div>
+                <div class="input-field">
+                    <i class=""><mat-icon matPrefix aria-hidden="true" aria-label="Example password icon">lock</mat-icon></i>
+                    <input matInput #password="ngModel" maxlength="16" ngModel [type]="showPassword ? 'text' : 'password'" minlength="8" id="password" name="password" placeholder="Password" required >
+                    <mat-icon class="show-password" matSuffix (click)="togglePasswordVisibility()">
+                        {{showPassword?'visibility_off':'visibility'}}
+                    </mat-icon>                  
+
+                </div>
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+                    <div *ngIf="password.errors?.['required']">
+                        Password is required.
+                    </div>
+                    <div *ngIf="password.errors?.['minlength']">
+                        password must be 8-16 characters and contain both numbers and letters/special characters.
+                    </div>
+                    <div *ngIf="password.errors?.['maxlength']">
+                        password must be 8-16 characters and contain both numbers and letters/special characters.
+                    </div>
+                </div>
+                <p class="forgot-btn dialog" id="forgot-password-btn" (click)="forgot()" style="cursor: pointer;">Forgot/Reset password</p>
+                <p *ngIf="this.errmsg!=''">{{this.errmsg}}</p>
+                <button [disabled]="!loginForm.valid" type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>One of us ?</h3>
+                <p>
+                    Hello Akgecian, Login to start growing with your buddy's
+                </p>
+            </div>
+            <img src="assets/img/log1.png" class="image" alt="" />
+        </div>
+    </div>
+</div>

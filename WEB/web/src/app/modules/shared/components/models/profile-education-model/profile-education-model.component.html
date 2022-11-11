@@ -1,0 +1,72 @@
+<div class="maincontainer">
+    <div class="container">
+        <div class="header">
+            <div class="edit-intro">
+                <h1 style="margin:0;">Add Education</h1>
+            </div>
+            <div class="close">
+                <button (click)="closeMe()" style="border:none; background:none; cursor: pointer;">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <hr>
+        <div class="body">
+            <form [formGroup]="profileEducationForm" (ngSubmit)="profileEducation()">
+                <div class="form-fields">
+                    <ul class="form-list">
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>College Name*</label>
+                                    <input type="text" name="collegeName" placeholder="AKGEC" formControlName="collegeName" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Education Type*</label>
+                                    <select name="educationType" id="educationType" placeholder="select" formControlName="educationType" required>
+                                        <option value="X">X</option>
+                                        <option value="XII">XII</option>
+                                        <option value="UG">UG</option>
+                                        <option value="PG">PG</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper">
+                                <div class="title-input">
+                                    <label>Education Name*</label>
+                                    <input type="text" name="educationName" placeholder="MCA" formControlName="educationName" required>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="field-list">
+                            <div class="wrapper wrapper-row">
+                                <div class="title-input">
+                                    <label>start Year*</label>
+                                    <input type="number" name="startYear" placeholder="2018" formControlName="startYear" required>
+                                </div>
+                                <div class="title-input">
+                                    <label>End Year*</label>
+                                    <input type="number" name="endYear" placeholder="2020" formControlName="endYear" required>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="footer">
+                    <div>
+                        <button [disabled]="!profileEducationForm.valid" type="submit" class="save-btn" style="cursor:pointer;">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+.orgimg {
+  // width: 560px;
+  // height: auto;
+  width: auto;
+  height: 330px;
+  // float: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// .cropped {
+//   width: 200px;
+//   height: 200px;
+//   margin-top: 10px;
+//   float: left;
+//   margin-left: 10px;
+// }
+
+.first-sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.third-sec{
+  display: flex;
+  justify-content: space-between;
+}
+.third-sec input[type='file']{
+  color:transparent;
+  width:100px;
+  margin-top:auto;
+}
+@media (min-width:100px) and (max-width:600px) {
+  .orgimg{
+    width:auto;
+    height:75vh;
+  }
+}

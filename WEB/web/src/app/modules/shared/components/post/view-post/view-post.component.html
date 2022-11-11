@@ -1,0 +1,110 @@
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()">
+  <div *ngFor="let post of postList ;let i = index ;">
+    <div class="body">
+      <div class="card">
+        <div class="top">
+          <div class="userDetails" (click)="showProfile(post['author'])">
+            <div class="profileImg">
+              <img *ngIf="post['image']==''" class="cover" [src]="pImage" alt="prifile image" />
+              <img *ngIf="post['image']!=''" class="cover" [src]="imagePath+'profileimages/'+post['profile']"
+                alt="prifile image" />
+            </div>
+            <h3>{{post['author_first_name']|titlecase}} {{post['author_last_name']}}<br>
+              <span class="des" style="font-family: cursive;">{{post['passing_year']}}</span><br>
+              <span style="font-family: cursive;">{{post['post_date']}}</span>
+              <span class="globdot">.</span>
+              <span><img src="../../../../../../assets/viewpost/globe.png" alt="globe" class="cover globe"></span>
+            </h3>
+          </div>
+          <div class="dot" *ngIf="post['author']==userData['email'] || userData['role']=='admin'">
+            <i (click)="deletePost(post['_id'])" class="material-icons" style="cursor: pointer;margin-right: 30px;font-size: 20px !important;">delete</i>
+          </div>
+        </div>
+        <div class="imgBg">
+          <div>
+            <h4 class="message">
+              {{(readMore && (post['_id'])==readid) ? post['description'] : post['description'] | slice:0:100}}
+              <a *ngIf="(post['_id'])!=readid && post['description'].length > 100" (click)="readMoreFun(post['_id'])"
+                class="readmore" style="font-family: cursive !important;">...Read More</a>
+            </h4>
+          </div>
+          <a *ngIf="post['mediaurl']!=''" (click)="showPostDetail(post['_id'])" class="dialog">
+            <div>
+              <img *ngIf="post['type']!='news'" [src]="imagePath+'postimages/'+post['mediaurl']" alt="bg" class="cover">
+              <img *ngIf="post['type']=='news'" [src]="imagePath+'newsimages/'+post['mediaurl']" alt="bg" class="cover">
+            </div>
+          </a>
+        </div>
+        <div class="btns">
+          <div class="left">
+            <h4>{{post['like_count']}} likes</h4>
+          </div>
+          <div class="right">
+            <h4>{{post['comment_count']}} comments</h4>
+          </div>
+        </div>
+        <div class="border"></div>
+        <div class="inputOption">
+          <i class="material-icons" [style.color]="(post['like'].indexOf(userData['email'])>-1) ?'blue':'gray'"
+            style="cursor: pointer;font-size: 30px !important;" (click)="like(post['_id'],i)">thumb_up</i>
+          <i class="material-icons" style="cursor: pointer;font-size: 30px !important;"
+            (click)="showcommentbox(post['_id'])"> comment </i>
+          <i class="material-icons" style="cursor: pointer;font-size: 30px !important;" (click)="share()"> shortcut </i>
+        </div>
+        <div *ngIf="(post['_id'])==commentbox && isOpenCommentBox">
+          <div class="feed__input">
+            <!-- <i class="material-icons"> create </i> -->
+            <div class="profileImg">
+              <img *ngIf="userData['image']==''" [src]="pImage" alt="prifile image"
+                style="width: 30px;height: 30px;border-radius: 50%;">
+              <img *ngIf="userData['image']!=''" [src]="imagePath+'profileimages/'+userData['image']"
+                alt="prifile image" style="width: 30px;height: 30px;border-radius: 50%;">
+            </div>
+            <form #submitComment="ngForm"
+              (ngSubmit)="sendcomment(submitComment.value,post['_id'],i);submitComment.reset()">
+              <input type="text" ngModel name="commentText" required="" #commentText="ngModel"
+                placeholder="add a comment" />
+              <button type="submit"><i class="material-icons" style="cursor: pointer;font-size: 30px !important;"> send
+                </i></button>
+            </form>
+
+          </div>
+          <div style="margin-top: 15px;font-family:'Times New Roman', Times, serif;font-size: 17px;font-weight: 300;">
+            <span *ngIf="commentList.length>0">most recent comments</span>
+          </div>
+
+          <div *ngFor="let comment of commentList;let j = index ;trackBy:trackByComment">
+            <div class="showcomment">
+              <div class="commentUserDetails" (click)="showProfile(comment['id'])">
+                <div class="CommentProfileImg" >
+                  <img *ngIf="comment['profile']==''" [src]="pImage" alt="prifile image" class="cover2">
+                  <img *ngIf="comment['profile']!=''" [src]="imagePath+'profileimages/'+comment['profile']"
+                    alt="prifile image" class="cover2">
+                </div>
+                <h3>{{comment['first_name']|titlecase}} {{comment['last_name']}}
+
+                  <br>
+                  <!-- <span class="des" style="font-family: cursive;">{{post['passing_year']}}</span><br> -->
+                  <!-- <span style="font-family: cursive;font-size: small;">{{post['post_date']}}</span> -->
+                </h3>
+                <span *ngIf="post['author']==userData['email'] || comment['id']==userData['email']"
+                  style="margin-left: auto;margin-right: 10px;"
+                  (click)="deleteComment(comment['comment'],post['_id'],j);post['comment_count']=post['comment_count']-1"><i
+                    class="material-icons" style="cursor: pointer;font-size: 20px !important;float: right;"> delete
+                  </i></span>
+              </div>
+              <div class="commentbox">
+                <span>{{comment['comment']}}</span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="ismorecomments">
+            <p style="margin-left: auto;font-family: cursive;font-weight: 400;font-size: 15px;cursor: pointer;"
+              (click)="showmorecomment(post['_id'])">...Show More</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

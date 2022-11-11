@@ -1,0 +1,9 @@
+
+POST_IMAGE_PATH='src/media/postimages'
+PROFILE_IMAGE_PATH='src/media/profileimages'
+NEWS_IMAGE_PATH='src/media/newsimages'
+
+NEWS_FETCH_LIMIT=2
+EVENT_FETCH_LIMIT=5
+POST_FETCH_LIMIT=4
+COMMENT_FETCH_LIMIT=3

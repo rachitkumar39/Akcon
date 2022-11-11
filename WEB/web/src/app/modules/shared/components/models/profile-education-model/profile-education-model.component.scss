@@ -1,0 +1,79 @@
+.container{
+    margin-top:5px;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    margin-bottom:20px;
+    justify-content: space-between;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.save-btn{
+    border-radius:5px;
+    background:green;
+    color:white;
+    width:75px;
+    height:30px;
+    float:right;
+    margin-top:8px;
+}
+.save-btn:hover{
+    color:green;
+    background: white;
+    border-color:black;
+}
+.body{
+    // margin-bottom: 10px;
+    margin-top: 15px;
+}
+.field-list{
+    margin-bottom: 20px;
+}
+.form-list{
+    list-style-type: none;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.title-input{
+    display: flex;
+    flex-direction: column;
+}
+.title-input label{
+    color: grey;
+    font-size: large;
+    margin-bottom:5px;
+}
+.title-input input{
+    height: 25px;
+    border-radius: 10px;
+    color: black;
+    font-size: medium;
+    padding: 5px;
+    background: #e1dede40;
+}
+.title-input select{
+    height: 30px;
+    border-radius: 10px;
+    color: black;
+    font-size: medium;
+    padding: 5px;
+    background: #e1dede40;
+}
+// .hide-number-arrow input::-webkit-inner-spin-button,::-webkit-outer-spin-button{
+//     -webkit-appearance: none;
+//     margin:0;
+// }
+.wrapper-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.wrapper-row div input::-webkit-inner-spin-button,::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin:0;
+}

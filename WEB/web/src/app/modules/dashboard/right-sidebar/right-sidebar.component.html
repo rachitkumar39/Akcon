@@ -1,0 +1,11 @@
+<div class="content">
+  <h1 class="heading">AKCON Event</h1>
+<main >
+  <ul class="gradient-list">
+    <li *ngFor="let event of eventList"  (click)="eventDetail(event['_id'])">{{event["title"]}}<br><div><h4 class="date">{{event["event_date"]}}</h4></div></li>
+  </ul>
+  <div style="display:flex; justify-content:flex-end">
+  <button style="font-size:large; cursor: pointer;" (click)="more()" *ngIf="isExpanded">more</button>
+  </div>
+</main>
+</div>

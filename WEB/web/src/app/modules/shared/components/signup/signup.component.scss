@@ -1,0 +1,349 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// .maincontainer{
+// position: absolute;
+// width: 70%;
+// height: 80%;
+// top: 50%;
+// left: 50%;
+// transform: translate(-50%, -50%);
+// box-sizing: border-box;
+// box-shadow: 0 15px 25px #95ad3c;
+// border-radius: 40px 0px 40px 0px;
+// background: #fafafa;  
+// padding:0px 10px;
+// }
+.first-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  background: transparent;
+}
+
+.no input::-webkit-outer-spin-button,
+.no input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.label-radio {
+  display: flex;
+  flex-direction: column;
+}
+
+.label1 {
+  margin: 0 10px 0 0;
+}
+
+// .btn{
+//   margin: 0px 15px 0px 0px;
+// }
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 20px;
+  letter-spacing: 4px
+}
+
+.submit-btn a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 1px #03e9f4, 0 0 5px #03e9f4, 0 0 5px #03e9f4, 0 0 10px #03e9f4;
+}
+
+.submit-btn a span {
+  position: absolute;
+  display: block;
+}
+
+.submit-btn a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.submit-btn a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.submit-btn a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.submit-btn a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+// .form-group label{
+//   position: absolute;
+//   padding: 10px 0;
+//   font-size: 16px;
+//   color: #000;
+//   pointer-events: none;
+//   transition: .5s;
+// }
+// .card-body .form-group{
+//   position: relative;
+// }
+// .form-group input:focus ~ .form-group label {
+//   top: 10px;
+//   // left: 0;
+//   color: #03e9f4;
+//   font-size: 12px;
+// }
+
+
+//second-section 
+.second-sec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+//excel file button
+.btn-3 {
+  background-color: #5A5B5E;
+}
+
+.btn-3 .round {
+  background-color: #737478;
+}
+
+.excel-btn button {
+  text-decoration: none;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  padding: 12px 53px 12px 23px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-weight: bold;
+  position: relative;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.excel-btn button span {
+  position: relative;
+  z-index: 3;
+}
+
+.excel-btn button .round {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  z-index: 2;
+}
+
+.excel-btn button .round mat-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  left: 50%;
+  margin-left: -4px;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.txt {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.type-3 .round {
+  background: transparent;
+}
+
+.type-3 button {
+  position: relative;
+  overflow: hidden;
+}
+
+.type-3 button.btn-3:after {
+  background-color: #737478;
+}
+
+.type-3 button:after {
+  content: "";
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 37px;
+  height: 38px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.type-3 button:hover .round mat-icon {
+  left: 12%;
+}
+.type-3 button:hover:after {
+  right: 100%;
+  width: 50%;
+}
+
+//---------------------------------//
+
+
+@media (min-width:100px) and (max-width:600px) {
+  .maincontainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .form-group input {
+    margin-bottom: 5px;
+    padding: 0;
+  }
+  .file-btn{
+    margin-bottom:10px;
+  }
+}
+
+@media (max-width:600px) and (min-height:801px) and (max-height:1000px) {
+  .maincontainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .form-group input {
+    margin-bottom: 20px;
+    padding: 10px 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {}
+
+@media (min-width: 993px) and (max-width: 1200px) {}
+
+@media (min-width: 1201px) and (max-width:1500px) {}
+
+@media (min-width: 1501px) {}

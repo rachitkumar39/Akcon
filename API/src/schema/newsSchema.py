@@ -1,0 +1,10 @@
+schema={
+        "type":"",
+        "title":"",
+        "description":"",
+        "news_date":"",
+        "author":"",
+        "mediaurl":""
+}
+newsCreate_=["type","title","description","author","mediaurl"]
+getNewsDetail_=["id"]

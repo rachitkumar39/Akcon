@@ -1,0 +1,9 @@
+schema={
+        "sender":"",
+        "receiver":"",
+        "time":"",
+        "date":"",
+        "message":""
+}
+messageCreate_=["sender","receiver","time","date","message"]
+getUserList_=["id"]

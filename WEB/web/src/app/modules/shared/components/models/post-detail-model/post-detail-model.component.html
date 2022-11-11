@@ -1,0 +1,68 @@
+<div class="main-container">
+  <i style="float: right; margin-top:5px; margin-right:5px;cursor: pointer;">
+    <mat-icon (click)="closeMe()">close</mat-icon>
+  </i>
+  <div class="container">
+    <div class="show-photo right-panel">
+      <img  [src]="imagePath+'postimages/'+postDetail['mediaurl']" alt="bg" class="cover">
+    </div>
+    <div class="left-panel">
+      <div class="profile-view" (click)="showProfile(postDetail['author'])" style="cursor:pointer;">
+        <!-- <img style="width:60px; height: 60px; border-radius: 30px;" *ngIf="postDetail['type']!='news'" src="../../../../../../assets/images/akg-icon.svg"> -->
+        <img *ngIf="postDetail['profile']==''"  style="width:60px; height: 60px; border-radius: 30px;" [src]="pImage" alt="profile">
+        <img  *ngIf="postDetail['profile']!=''" style="width:60px; height: 60px; border-radius: 30px;" [src]="imagePath+'profileimages/'+postDetail['profile']" alt="profile">
+        
+        <div style="margin-left:5px; margin-top:5px; display: flex; flex-direction: column;">
+          <!-- <p style="font-weight: bold; margin:0; padding:0;"></p> -->
+          <span>
+            <p style="margin:0; padding:0; font-weight:800;font-size: 18px;font-family:cursive;" >{{postDetail['author_first_name']|titlecase}} {{postDetail['author_last_name']|titlecase}} </p>
+          </span>
+          <span style="font-family:cursive;font-weight:500;font-size: 14px;color: gray;">{{postDetail['passing_year']}}</span>
+          <span style="font-family:cursive;font-weight:500;font-size: 14px;color: gray;">{{postDetail['post_date']}}</span>
+          <!-- <span>?</span> -->
+        </div>
+      </div>
+      <div *ngIf="postDetail['title']!=''">
+        <p style="word-break: break-all;">
+          {{postDetail['title']}}
+        </p>
+      </div>
+      <div *ngIf="postDetail['description']!=''" class="discription-text">
+        <div>
+          <p style="word-break: break-all;">
+            {{postDetail['description']}}
+            <!-- {{(readMore) ? longText : longText | slice:0:250}} <span *ngIf="!readMore">...</span>
+            <a *ngIf="!readMore" (click)="readMore=true" class="readmore">Read More</a> -->
+          </p>
+        </div>
+      </div>
+      <hr>
+      <div class="lms">
+        <div class="icon" *ngIf="postDetail['type']!='news'" [style.color]="(postDetail['like'].indexOf(userData['email'])>-1) ?'blue':'gray'">
+          <mat-icon (click)="like()" 
+            style="cursor: pointer !important;">thumb_up</mat-icon>
+          <span>like</span>
+        </div>
+        <div class="icon" style="cursor: pointer;color: gray;">
+          <mat-icon >shortcut</mat-icon>
+          <span>share</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+      
+     

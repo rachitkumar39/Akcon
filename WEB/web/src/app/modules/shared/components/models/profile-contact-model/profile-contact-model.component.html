@@ -1,0 +1,79 @@
+<div class="maincontainer">
+  <div class="container">
+      <div class="header">
+          <div class="edit-intro">
+              <h1 style="margin:0;">Edit Contact Detail</h1>
+          </div>
+          <div class="close">
+              <button (click)="closeMe()" style="border:none; background:none; cursor: pointer;">
+                  <mat-icon>close</mat-icon>
+              </button>
+          </div>
+      </div>
+      <hr>
+      <div class="body">
+          <form [formGroup]="profileContactForm" (ngSubmit)="profileContact()">
+              <div class="form-fields">
+                  <ul class="form-list">
+                      <li class="field-list">
+                          <div class="wrapper">
+                              <div class="title-input">
+                                  <label>Email</label>
+                                  <input type="text" name="email" [value]="Vemail" [placeholder]="Vemail==undefined?'Add URL':Vemail" formControlName="email">
+                              </div>
+                          </div>
+                      </li>
+                      <li class="field-list">
+                          <div class="wrapper">
+                              <div class="title-input">
+                                  <label>Git</label>
+                                  <input type="text" name="git" [value]="Vgit" [placeholder]="Vgit==undefined?'Add URL':Vgit" formControlName="git">
+                              </div>
+                          </div>
+                      </li>
+                      <li class="field-list">
+                          <div class="wrapper">
+                              <div class="title-input">
+                                  <label>Linked In</label>
+                                  <input type="text" name="linkedin" [value]="Vlinkedin" [placeholder]="Vlinkedin==undefined?'Add URL':Vlinkedin" formControlName="linkedin">
+                              </div>
+                          </div>
+                      </li>
+                      <li class="field-list">
+                          <div class="wrapper">
+                              <div class="title-input">
+                                  <label>Twitter</label>
+                                  <input type="text" name="twitter" [value]="Vtwitter" [placeholder]="Vtwitter==undefined?'Add URL':Vtwitter" formControlName="twitter">
+                              </div>
+                          </div>
+                      </li>
+                      <li class="field-list">
+                          <div class="wrapper">
+                              <div class="title-input">
+                                  <label>Instagram</label>
+                                  <input type="text" name="instagram" [value]="Vinstagram" [placeholder]="Vinstagram==undefined?'Add URL':Vinstagram" formControlName="instagram">
+                              </div>
+                          </div>
+                      </li>
+                      <li class="field-list">
+                          <div class="wrapper">
+                              <div class="title-input">
+                                  <label>Facebook</label>
+                                  <input type="text" name="facebook" [value]="Vfacebook" [placeholder]="Vfacebook==undefined?'Add URL':Vfacebook" formControlName="facebook">
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <hr>
+              <div class="footer">
+                  <div>
+                      <button type="submit" class="save-btn" style="cursor:pointer;">
+                          Save
+                      </button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
